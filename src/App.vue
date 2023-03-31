@@ -2,47 +2,48 @@
 import axios from 'axios';
 import { store } from '../store.js';
 import MyMovieList from './components/MyMovieList.vue';
+import MySearchBar from './components/MySearchBar.vue'
 
 export default {
-  return: {
-    data() {
+  data() {
+    return {
       store
     }
   },
+
   methods: {
     getMovie() {
       store.loading = true;
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=e5909ae0f4f96e86e199022bd90ac5cf&query=r')
+
+
+      let urlApi = "https://api.themoviedb.org/3/search/movie?api_key=e5909ae0f4f96e86e199022bd90ac5cf"
+      if (store.search.length > 0) {
+          urlApi += `&query=${store.search}`;
+        }
+
+
+      axios.get(urlApi)
         .then(response => {
           store.filmList = response.data.results;
-          //stampato per prova il nome del film con esito positivo
-          console.log(store.filmList[0].title);
-          console.log(store.filmList[0].release_date);
-          console.log(store.filmList[0].popularity);
-          //fine stampa di prova
           store.loading = false;
-        });
+        })
     }
   },
-  components:{
-    MyMovieList
+  components: {
+    MyMovieList,
+    MySearchBar
   },
   created() {
     this.getMovie();
-  },
+  }
 }
 </script>
 
 <template>
-
-  <div class="searchPart">
-    <input type="text" placeholder="Search In Our Database">
-
-  </div>
-
- <MyMovieList />
+  <MySearchBar @doSearch="getMovie"/>
 
 
+  <MyMovieList />
 </template>
 
 <style scoped></style>

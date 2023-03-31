@@ -2,7 +2,7 @@
     <MyFilmCard v-for="(card,index) in store.filmList" :title="card.filmList.title" :key="index"></MyFilmCard> 
 </template>
 <script>
-import { store } from '../../store';
+import { store } from '../../store.js';
 import MyFilmCard from './MyFilmCard.vue'
 export default{
     return:{

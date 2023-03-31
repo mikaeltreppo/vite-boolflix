@@ -34,6 +34,12 @@ export default {
 </script>
 
 <template>
+
+  <div class="searchPart">
+    <input type="text" placeholder="Search In Our Database">
+
+  </div>
+
  <MyMovieList />
 
 

@@ -20,7 +20,7 @@ export default {
         title: String,
         originalTitle: String,
         language:String,
-        vote:String
+        vote:Number
     }
 
 }

@@ -19,34 +19,29 @@ export default {
 
       let urlApi = "https://api.themoviedb.org/3/search/movie?api_key=e5909ae0f4f96e86e199022bd90ac5cf"
       if (store.search.length > 0) {
-        urlApi += `&query=${store.search}`;
-      }
+          urlApi += `&query=${store.search}`;
+        }
 
       axios.get(urlApi)
         .then(response => {
           store.filmList = response.data.results;
-          store.loading = false;
         })
-    },
-    //serie Tv
-    getSeries() {
-      store.loading = true;
 
 
-      let urlApi = "https://api.themoviedb.org/3/search/tv?api_key=e5909ae0f4f96e86e199022bd90ac5cf"
-      if (store.search.length > 0) {
-        urlApi += `&query=${store.search}`;
-      }
+        let urlApiSeries = "https://api.themoviedb.org/3/search/tv?api_key=e5909ae0f4f96e86e199022bd90ac5cf"
+        if (store.search.length > 0) {
+          urlApiSeries += `&query=${store.search}`;
+        }
 
 
-      axios.get(urlApi)
+      axios.get(urlApiSeries)
         .then(response => {
-          console.log(response)
           store.seriesList = response.data.results;
           store.loading = false;
         })
-    }
-  },
+    }  
+    },
+  
   components: {
     MyMovieList,
     MySeriesList,
@@ -54,19 +49,19 @@ export default {
   },
   created() {
     this.getMovie();
-    this.getSeries();
 
   }
 }
 </script>
 
 <template>
-  <MySearchBar @doSearch="getMovie, getSeries" />
+  <MySearchBar @doSearch="getMovie"/>
 
-  <h2>Film</h2>
+<h2>Film</h2>
   <MyMovieList />
   <h2>Serie Tv</h2>
   <MySeriesList />
+
 </template>
 
 <style scoped></style>

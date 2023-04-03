@@ -1,5 +1,6 @@
 <template>
     <div>
+      <img :src="image" alt="">
         {{ title }}
         {{ originalTitle }}
         <span v-if="this.language == 'it'"><img class="flags"
@@ -21,14 +22,16 @@ export default {
     name: 'MyFilmCard',
     data() {
         return {
-            store
+            store,
+            
         }
     },
     props: {
         title: String,
         originalTitle: String,
         language: String,
-        vote: Number
+        vote: Number,
+        image:String
     }
 
 }

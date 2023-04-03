@@ -1,6 +1,6 @@
 <template>
-  <div v-if="store.loading == false">
-        <MyFilmCard v-for="(card, index) in store.filmList" :title="card.title" :originalTitle="card.original_title" :language="card.original_language" :vote="card.vote_average" :image="'https://image.tmdb.org/t/p/w500' + card.poster_path"   :key="index"></MyFilmCard>
+  <div class="cardContainer" v-if="store.loading == false">
+        <MyFilmCard v-for="(card, index) in store.filmList" :title="card.title" :originalTitle="card.original_title" :language="card.original_language" :vote="card.vote_average" :image="'https://image.tmdb.org/t/p/w300' + card.poster_path"   :key="index"></MyFilmCard>
     </div>
     <div v-else>La pagina sta caricando</div>
    
@@ -25,4 +25,11 @@ export default {
 
 
 </script>
-<style></style>
+<style>
+.cardContainer{
+    display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+</style>

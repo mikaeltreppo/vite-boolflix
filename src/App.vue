@@ -25,12 +25,12 @@ export default {
       axios.get(urlApi)
         .then(response => {
           store.filmList = response.data.results;
-       
+          store.loading = false;
         })
     },
     //serie Tv
     getSeries() {
- 
+      store.loading = true;
 
 
       let urlApi = "https://api.themoviedb.org/3/search/tv?api_key=e5909ae0f4f96e86e199022bd90ac5cf"
@@ -42,7 +42,7 @@ export default {
       axios.get(urlApi)
         .then(response => {
           console.log(response)
-          store.seriesList = response.results;
+          store.seriesList = response.data.results;
           store.loading = false;
         })
     }
@@ -55,12 +55,13 @@ export default {
   created() {
     this.getMovie();
     this.getSeries();
+
   }
 }
 </script>
 
 <template>
-  <MySearchBar @doSearch="getMovie" />
+  <MySearchBar @doSearch="getMovie, getSeries" />
 
   <h2>Film</h2>
   <MyMovieList />

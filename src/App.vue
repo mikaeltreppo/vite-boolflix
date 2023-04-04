@@ -37,7 +37,7 @@ export default {
       axios.get(urlApiSeries)
         .then(response => {
           store.seriesList = response.data.results;
-          store.loading = false;
+          store.loading = false; 
         })
     }  
     },
@@ -49,7 +49,7 @@ export default {
   },
   created() {
     this.getMovie();
-
+   
   }
 }
 </script>

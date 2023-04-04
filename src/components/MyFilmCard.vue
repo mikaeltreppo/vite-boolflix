@@ -14,7 +14,12 @@
             <span v-if="this.language == 'de'"><img class="flags"
                     src="https://seekflag.com/app/uploads/2021/11/Flag-of-Germany-01-1.svg" alt=""> </span>
             <span v-else>{{ language }}</span>
-            {{ vote }}
+            <span v-if="vvote == 1"><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></span> 
+            <span v-if="vvote == 2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i></span>  
+            <span v-if="vvote == 3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i></span>  
+            <span v-if="vvote == 4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></span>  
+            <span v-if="vvote == 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>  
+           
         </div>
 
 </template>
@@ -23,10 +28,11 @@ import { store } from '../../store';
 
 export default {
     name: 'MyFilmCard',
+   
     data() {
         return {
             store,
-
+            vvote : Math.floor((this.vote) / 2),
         }
     },
     props: {
@@ -35,7 +41,14 @@ export default {
         language: String,
         vote: Number,
         image: String
-    }
+
+    },
+    methods:{
+       starVote(){
+
+    
+       }
+    }  
 
 }
 

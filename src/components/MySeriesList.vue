@@ -26,8 +26,9 @@
   </script>
   <style>
 .cardContainer{
+    background-color: rgb(67, 67, 67);
 display: flex;
 flex-wrap: wrap;
-justify-content: space-around;
+justify-content: space-between;
 } 
 </style>

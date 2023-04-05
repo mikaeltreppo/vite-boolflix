@@ -56,12 +56,24 @@ export default {
 
 <template>
   <MySearchBar @doSearch="getMovie"/>
-
+<div class="overflow">
 <h2>Film</h2>
   <MyMovieList />
   <h2>Serie Tv</h2>
   <MySeriesList />
+</div>
 
 </template>
 
-<style scoped></style>
+<style scoped>
+h2{
+  background-color: rgb(67, 67, 67);
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+.overflow{
+  overflow-y: auto;
+  height: calc(100vh - 30px);
+
+}</style>

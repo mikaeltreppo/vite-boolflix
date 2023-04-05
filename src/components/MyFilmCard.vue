@@ -67,7 +67,7 @@ export default {
 </script>
 <style scoped>
 .trailer{
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 .flip-card-back div{
     margin: 10px;

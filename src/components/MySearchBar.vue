@@ -25,4 +25,16 @@ export default{
 }
 </script>
 <style>
+input{
+    height: 30px;
+
+}
+.searchPart{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    height: 30px;
+}
 </style>

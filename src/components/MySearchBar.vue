@@ -1,6 +1,7 @@
 <template>
 
      <div class="searchPart">
+        <h1>BOOLFLIX</h1>
         <input type="text" v-model="this.store.search" placeholder="Search character"  >
         <button @click="$emit('doSearch')" class="btn btn-primary">Search</button>
         <button @click="doReset" class="btn btn-warning">Reset</button>
@@ -25,6 +26,10 @@ export default{
 }
 </script>
 <style>
+h1{
+    color: red;
+    margin:20px ;
+}
 input{
     height: 30px;
 

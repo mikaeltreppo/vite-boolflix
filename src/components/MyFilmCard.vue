@@ -8,8 +8,8 @@
             <!--info che andranno dietro alla card-->
             </div>
             <div class="flip-card-back">
-          <div>{{ title }}</div>  
-          <div>{{ originalTitle }}</div>
+        <span class="blue">Titolo:</span>  <div>{{ title }}</div>  
+        <span class="blue">Titolo Originale:</span><div>{{ originalTitle }}</div>
             <span v-if="this.language == 'it'"><img class="flags"
                     src="https://seekflag.com/app/uploads/2021/12/Flag-of-Italy-01-1.svg" alt=""> </span>
             <span v-if="this.language == 'en'"><img class="flags"
@@ -18,13 +18,13 @@
                     src="https://seekflag.com/app/uploads/2021/12/Flag-of-Spain-01-2.svg" alt=""> </span>
             <span v-if="this.language == 'de'"><img class="flags"
                     src="https://seekflag.com/app/uploads/2021/11/Flag-of-Germany-01-1.svg" alt=""> </span>
-           <span v-else>{{ language }}</span>
+        <span v-else>   <span class="blue"> Lingua:</span>{{ language }}</span>
             <div v-if="vvote == 1"><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></div> 
             <div v-if="vvote == 2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i></div>  
             <div v-if="vvote == 3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i></div>  
             <div v-if="vvote == 4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>  
             <div v-if="vvote == 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>  
-          <div class="trailer"> {{ trailer }}</div>
+     <div class="trailer"> <span class="blue">  Trailer: </span>   {{ trailer }}</div>
         </div>
         </div>
         </div>
@@ -66,8 +66,15 @@ export default {
 
 </script>
 <style scoped>
+.blue{
+
+    color: rgb(65, 65, 111);
+}
 .trailer{
     overflow-y: hidden;
+    height: 240px;
+
+
 }
 .flip-card-back div{
     margin: 10px;
